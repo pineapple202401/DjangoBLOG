@@ -1,0 +1,11 @@
+{% extends "scaffolds/base.html" %}
+
+
+{% block content %}
+    <h1 style="color: green"> 繼承模板 </h1>
+    {% for post in posts %}
+        <a href="post/{{post.slug}}"> #{{forloop.counter}}: {{ post.title }} </a>
+        <br>
+        <br>
+    {% endfor %}
+{% endblock %}

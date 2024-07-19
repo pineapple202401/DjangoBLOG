@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Django CMS </title>
+        {% include "components/header.css.html" %}
+    </head>
+
+
+    <body>
+        <h1> Welcome to MyBLOG </h1>
+        <hr>
+        {% block content %} {% endblock %}
+        <hr>
+        {% include "components/footer.html"%}
+    </body>
+</html>

@@ -19,7 +19,7 @@ from datetime import datetime
 def home_template(requests):
     posts = Post.objects.all()
     now = datetime.now()
-    return render(requests, 'index.html', locals())
+    return render(requests, 'pages/index.html', locals())
 
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
@@ -32,3 +32,11 @@ def showpost(requests, slug):
         post = Post.objects.filter(slug = slug).first()
    
     return render(requests, 'post.html' , locals())
+
+def index(requests):
+    # ... (略) ...
+    return render(requests, "pages/index.html", locals())
+
+def showPost(requests, slug):
+    # ... (略) ...
+    return render(requests, "pages/post.html", locals())
