@@ -20,3 +20,15 @@ def home_template(requests):
     posts = Post.objects.all()
     now = datetime.now()
     return render(requests, 'index.html', locals())
+
+from django.shortcuts import redirect
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+def showpost(requests, slug):
+    try:
+        post = Post.objects.get(slug = slug)
+    except ObjectDoesNotExist:
+        return redirect('/')
+    except MultipleObjectsReturned:
+        post = Post.objects.filter(slug = slug).first()
+   
+    return render(requests, 'post.html' , locals())
