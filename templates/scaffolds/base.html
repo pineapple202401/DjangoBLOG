@@ -7,6 +7,9 @@
 
 
     <body>
+        {% load static %}
+        <img src="{% static "images/logo.jpg" %}">
+
         <h1> Welcome to MyBLOG </h1>
         <hr>
         {% block content %} {% endblock %}
