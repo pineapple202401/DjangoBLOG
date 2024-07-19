@@ -14,3 +14,9 @@ def home(requests):
         data_contain.append("<small>{}</small><br><hr>".format(post.content))
     # 3. 渲染並回傳
     return HttpResponse(data_contain)
+
+from datetime import datetime
+def home_template(requests):
+    posts = Post.objects.all()
+    now = datetime.now()
+    return render(requests, 'index.html', locals())
