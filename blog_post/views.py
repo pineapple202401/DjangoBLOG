@@ -23,6 +23,12 @@ def home_template(requests):
 
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+
+def index(requests):
+    # ... (略) ...
+    return render(requests, "pages/index.html", locals())
+
+
 def showpost(requests, slug):
     try:
         post = Post.objects.get(slug = slug)
@@ -31,12 +37,4 @@ def showpost(requests, slug):
     except MultipleObjectsReturned:
         post = Post.objects.filter(slug = slug).first()
    
-    return render(requests, 'post.html' , locals())
-
-def index(requests):
-    # ... (略) ...
-    return render(requests, "pages/index.html", locals())
-
-def showPost(requests, slug):
-    # ... (略) ...
-    return render(requests, "pages/post.html", locals())
+    return render(requests, 'pages/post.html' , locals())
