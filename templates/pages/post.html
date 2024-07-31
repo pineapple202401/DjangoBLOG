@@ -1,12 +1,11 @@
 {% extends "scaffolds/base.html" %}
 
-
-
-
 {% block content %}
+  <h1 style="color: green"> 繼承模板 </h1>
   <h1>{{post.title}}</h1>
     <hr />
-    {{ post.content | safe | truncatechars:200 }}
+    {% load markdown_tag %}
+    {{ post.content | markdown | safe | linebreaks }}
     <hr />
     <h3>{{post.pub_date}}</h3>
     <br>
