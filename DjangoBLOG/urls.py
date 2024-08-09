@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog_post.views import home, home_template, showpost
+from line_bot.views import callback, pushMsg
 
-#127.0.0.1:8000
+
+# 127.0.0.1:8000
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_template),
     path('demo1', home),
-    # path('', home),
     path('post/<slug:slug>', showpost),
+    path('line/', callback),
+    path('line/push/<str:uid>', pushMsg),
 ]
